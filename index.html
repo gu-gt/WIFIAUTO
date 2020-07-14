@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下载 Space X APP</title>
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        //下载地址，下面三个编写需根据需求修改
+        var androidurl = "http://192.168.18.83:8080/testweb/abc.apk";
+        var iosurl = "https://itunes.apple.com/cn/app/id1165700634?mt=8";
+        var appname = "点击下载"+"Space X";
+
+        //设置下载地址到下载链接
+        document.getElementById('appname').innerHTML = appname;
+        document.getElementById('admanual').href = androidurl;
+        document.getElementById('iosmanual').href = iosurl;
+        //判断浏览器
+        var u = navigator.userAgent.toLowerCase();//获取判断用的对象，不区分大小写
+        var uA = navigator.userAgent;//获取判断用的对象，区分大小写
+        var isandroid = uA.indexOf('Android') > -1 || uA.indexOf('Adr') > -1; //android终端
+        var isios = !!uA.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isios){//iOS系统
+            window.location.href = iosurl;
+        }else if(isandroid){//安卓系统
+            if(u.match(/MicroMessenger/i)=="micromessenger"){
+                //如果是微信，安卓则提示在浏览器中打开
+                document.getElementById('downloadmsg').innerHTML='请点击右上角图标，在浏览器中打开。';
+                document.getElementById('downloadmsg').style.cssText="font-size: 1.4rem; text-align: right;;display: block;";
+                //显示箭头
+                document.getElementById('weixinjiantou').innerHTML='<img src="箭头@2x.png" width="40"/>';
+                document.getElementById('weixinjiantou').style.cssText="font-size: 1.4rem; text-align: right;;display: block; padding-right:5%;";
+            }else{
+                //如果不是微信，安卓跳转下载
+                window.location.href = androidurl;
+            }
+        }else{//不是手机?
+            document.getElementById('downloadmsg').innerHTML = "请手机浏览器中打开进行下载。";
+            document.getElementById('downloadmsg').style.cssText="font-size: 1.4rem; text-align: center;display: block;padding-top: 10%";
+            document.getElementById('apppic').style.cssText="background-repeat: no-repeat; background-size:414px 736px;background-position:center";
+            document.getElementById('maintable').style.cssText="margin-top:5%";
+        }
+    }
+</script>
+</head>
+<body id="apppic" background="背景.png" style="background-size:100% 100%;">
+<span id="weixinjiantou"></span>
+<span id="downloadmsg"></span>
+
+<table id="maintable" align="center" style="margin-top: 20% ">
+<tr>
+    <td style="text-align: center;">
+    <span id="appname" style="font-size: 1.4rem;"></span>
+    </td>
+</tr>
+<tr>
+    <td style="text-align: center;">
+    <a href="#" id="iosmanual" target="_blank"><img src="iOS按钮@2x.png"  style="width: 70%;"></img></a>
+    </td>
+</tr>
+<tr>
+    <td style="text-align: center;margin-top: 10px; ">
+    <a href="#" id="admanual" target="_blank"><img src="Android按钮@2x.png" style="width: 70%;"></img></a>
+    </td>
+</tr>
+</table>
+</body>
+</html>
