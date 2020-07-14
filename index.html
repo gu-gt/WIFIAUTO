@@ -2,13 +2,13 @@
 <head>
 <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>下载 Space X APP</title>
+<title>WIFI连接扫码指引</title>
 <script language="javascript" type="text/javascript">
     window.onload = function(){
         //下载地址，下面三个编写需根据需求修改
         var androidurl = "wifi.html";
         var iosurl = "wifi.html";
-        var appname = "点击下载"+"Space X";
+        var appname = "WIFI连接扫码指引";
 
         //设置下载地址到下载链接
         document.getElementById('appname').innerHTML = appname;
@@ -24,11 +24,9 @@
         }else if(isandroid){//安卓系统
             if(u.match(/MicroMessenger/i)=="micromessenger"){
                 //如果是微信，安卓则提示在浏览器中打开
-                document.getElementById('downloadmsg').innerHTML='请点击右上角图标，在浏览器中打开。';
+                document.getElementById('downloadmsg').innerHTML='请使用自带浏览器或者扫码软件扫描连接二维码';
                 document.getElementById('downloadmsg').style.cssText="font-size: 1.4rem; text-align: right;;display: block;";
-                //显示箭头
-                document.getElementById('weixinjiantou').innerHTML='<img src="箭头@2x.png" width="40"/>';
-                document.getElementById('weixinjiantou').style.cssText="font-size: 1.4rem; text-align: right;;display: block; padding-right:5%;";
+                
             }else{
                 //如果不是微信，安卓跳转下载
                 window.location.href = androidurl;
@@ -54,12 +52,12 @@
 </tr>
 <tr>
     <td style="text-align: center;">
-    <a href="#" id="iosmanual" target="_blank"><img src="iOS按钮@2x.png"  style="width: 70%;"></img></a>
+    <a href="#" id="iosmanual" target="_blank"><img src="iOS按钮@2x.png"  style="width: 70%;">WIFI:111</img></a>
     </td>
 </tr>
 <tr>
     <td style="text-align: center;margin-top: 10px; ">
-    <a href="#" id="admanual" target="_blank"><img src="Android按钮@2x.png" style="width: 70%;"></img></a>
+    <a href="#" id="admanual" target="_blank"><img src="Android按钮@2x.png" style="width: 70%;">密码：11111</img></a>
     </td>
 </tr>
 </table>
